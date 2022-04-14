@@ -1,5 +1,7 @@
+import { hash } from "bcrypt";
 import { ICreateUserDTO } from "../../DTO/ICreateUserDTO";
 import { IUsersRepository } from "../../repository/IUsersRepository";
+import { AppError } from "../../../../errors/AppError"
 
 
 class CreateUserUseCase {
@@ -11,12 +13,14 @@ class CreateUserUseCase {
         const userAlreadExist = await this.usersRepository.findByTel(tel)
 
         if(userAlreadExist)
-            throw new Error("Usuário já existe!")
+            throw new AppError("Usuário já existe!")
+
+        const hashSenha = await hash(senha, 8)
 
         const user = await this.usersRepository.create({
             nome,
             tel,
-            senha
+            senha: hashSenha
         })
 
         return user;

@@ -18,5 +18,19 @@ model User {
   ativa Boolean
   created_at DateTime @default(now())
 
+  codes Code[]
+
   @@map("users")
+}
+
+model Code {
+  id String @id @default(uuid())
+  chave String
+  usada Boolean
+  user_id String
+  created_at DateTime @default(now())
+
+  @@map("codes")
+
+  user User @relation(fields: [user_id], references: [id])
 }
