@@ -6,7 +6,7 @@ import { IUsersRepository } from "../IUsersRepository";
 
 
 class UsersRepository implements IUsersRepository{
-    async create({ nome, tel, ativa, senha }: ICreateUserDTO): Promise<User> {
+    async create({ nome, tel, senha }: ICreateUserDTO): Promise<User> {
         const user = await prismaClient.user.create({ 
             data: {
                 nome, 
@@ -19,4 +19,14 @@ class UsersRepository implements IUsersRepository{
         return user;
     }
 
+    async findByTel(tel: string): Promise<User> {
+        const user = await prismaClient.user.findFirst({
+            where: { tel }
+        })
+
+        return user as User;
+    }
+
 }
+
+export { UsersRepository }
