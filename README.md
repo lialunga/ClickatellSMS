@@ -18,5 +18,5 @@
 
 ## Links
 
-- [![API da Clickatell]](https://docs.clickatell.com/channels/one-api/one-api-reference/#tag/One-API)
-- [![Angola API]](https://github.com/Angola-Api/Angola-Api)
+- [API da Clickatell](https://docs.clickatell.com/channels/one-api/one-api-reference/#tag/One-API)
+- [Angola API](https://github.com/Angola-Api/Angola-Api)
