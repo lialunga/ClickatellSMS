@@ -15,3 +15,8 @@
 - axios para consumir a api da angola api;
 - angola api para validação do número de telefone;
 - voucher-code-generator para criação de código de 6 dígitos;
+
+## Links
+
+- [![API da Clickatell]](https://docs.clickatell.com/channels/one-api/one-api-reference/#tag/One-API)
+- [![Angola API]](https://github.com/Angola-Api/Angola-Api)
