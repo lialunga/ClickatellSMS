@@ -59,6 +59,12 @@ class UsersRepository implements IUsersRepository{
         return update
     }
 
+    async findAll(): Promise<User[]> {
+        const users = await prismaClient.user.findMany()
+
+        return users;
+    }
+
 }
 
 export { UsersRepository }
