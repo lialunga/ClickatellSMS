@@ -2,6 +2,7 @@ import { Code } from "@prisma/client";
 import { ICreateCodeDTO } from "../../DTO/ICreateCodeDTO";
 import { ICodeRepository } from "../ICodeRepository";
 import prismaClient from "../../../../prisma/connection";
+import { AppError } from "../../../../errors/AppError";
 
 
 
