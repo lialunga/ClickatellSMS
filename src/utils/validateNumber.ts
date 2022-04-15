@@ -1,4 +1,3 @@
-import { AppError } from "../errors/AppError"
 import api from "../services/angolaApi"
 
 export default async function validateNumber(tel: string) {
