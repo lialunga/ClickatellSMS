@@ -13,15 +13,15 @@ class CreateUserController {
 
         const createUserUseCase = new CreateUserUseCase(usersRepository)
 
-        const createCodeUseCase = new CreateCodeUseCase(codeRepository)
-
         const user = await createUserUseCase.execute({
             nome,
             tel,
             senha,
         })
 
-        const chave = await createCodeUseCase.execute(user.id)
+        const createCodeUseCases = new CreateCodeUseCase(codeRepository)
+
+        await createCodeUseCases.execute({user_id: user.id, tel: user.tel})
 
         return res.status(200).json(user)
     }

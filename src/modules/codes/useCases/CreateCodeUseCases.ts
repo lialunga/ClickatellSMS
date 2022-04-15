@@ -1,13 +1,14 @@
 import voucher_codes from 'voucher-code-generator'
 import { ICodeRepository } from "../repository/ICodeRepository";
-
+import ClickatellSMS from "../../../services/ClickatellSMS"
+import { ISendCodeDTO } from '../DTO/ISendCodeDTO';
 
 class CreateCodeUseCase {
     constructor(
         private codeRepository: ICodeRepository
     ){}
 
-    async execute(user_id: string){
+    async execute({ user_id, tel }: ISendCodeDTO){
         const chave = voucher_codes.generate({
             length: 6,
             count: 1,
@@ -19,7 +20,8 @@ class CreateCodeUseCase {
             user_id
         })
 
-        return code;
+        const sms = new ClickatellSMS()
+        sms.sendSMS(code.chave, tel)
     }
 }
 
